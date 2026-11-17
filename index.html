@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizMaster</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="logo"><i class="fa-solid fa-brain"></i> QUIZMASTER</h1>
+    <span class="tagline">Test your knowledge</span>
+  </header>
+
+  <main>
+    <section id="setup" class="card screen active">
+      <label for="playerName"><i class="fa-solid fa-user"></i> Player name</label>
+      <input type="text" id="playerName" placeholder="Enter your name" maxlength="20" autocomplete="off">
+
+      <label><i class="fa-solid fa-layer-group"></i> Select arena</label>
+      <div class="dropdown" id="categoryDropdown"></div>
+
+      <label><i class="fa-solid fa-gauge-high"></i> Difficulty level</label>
+      <div class="dropdown" id="difficultyDropdown"></div>
+
+      <label for="rounds"><i class="fa-solid fa-bolt"></i> Number of rounds</label>
+      <input type="number" id="rounds" min="1" max="50" placeholder="Enter 1-50 rounds">
+      <small class="hint">More rounds = more XP potential!</small>
+
+      <p id="error" class="error" role="alert"></p>
+      <button id="startBtn" class="btn"><i class="fa-solid fa-play"></i> Start game</button>
+    </section>
+
+    <section id="loading" class="card screen center">
+      <div class="spinner"></div>
+      <p class="loading-text">Loading your questions...</p>
+    </section>
+
+    <section id="game" class="card screen">
+      <div class="game-top">
+        <span class="chip"><i class="fa-solid fa-user"></i> <b id="gPlayer"></b></span>
+        <span class="chip">Score: <b id="gScore">0</b></span>
+        <span class="chip">Round <b id="gRound">1</b>/<b id="gTotal">1</b></span>
+      </div>
+      <div class="timer"><div id="timerBar" class="timer-bar"></div></div>
+      <p class="time-left"><i class="fa-solid fa-clock"></i> <b id="timeLeft">15</b>s</p>
+      <p class="meta" id="qMeta"></p>
+      <h2 id="qText" class="question"></h2>
+      <div id="answers" class="answers"></div>
+      <p class="hint center-text">Click an answer or press its number key</p>
+    </section>
+
+    <section id="result" class="card screen center">
+      <i id="rIcon" class="fa-solid fa-trophy result-icon"></i>
+      <h2 id="rTitle"></h2>
+      <p class="big-score"><span id="rScore">0</span> / <span id="rTotal">0</span></p>
+      <p id="rMsg" class="meta"></p>
+      <button id="againBtn" class="btn"><i class="fa-solid fa-rotate-right"></i> Play again</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
